@@ -6,8 +6,8 @@
     $jsonPhonebookHeaders = 'headers.json';
 
     // Записываем в переменные содержимое файлов:
-    $jsonPhonebookData = file_get_contents($jsonPhonebook);
-    $jsonHeadersData = file_get_contents($jsonPhonebookHeaders);
+    $jsonPhonebookData = file_get_contents(__DIR__ . '/' . $jsonPhonebook);
+    $jsonHeadersData = file_get_contents(__DIR__ . '/' . $jsonPhonebookHeaders);
 
     // Преобразовываем данные из переменных в формат массивов:
     $phoneBookArray = json_decode($jsonPhonebookData, false);
@@ -39,10 +39,10 @@
         <table>
             <? foreach ($dataArray as $key => $array) { ?>
                 <tr>
-                    <td><?= $dataArray[$key] -> {'firstName'} ?></td>
-                    <td><?= $dataArray[$key] -> {'lastName'} ?></td>
-                    <td><?= $dataArray[$key] -> {'address'} ?></td>
-                    <td><?= $dataArray[$key] -> {'phoneNumber'} ?></td>
+                    <td><?= $dataArray[$key] -> firstName ?></td>
+                    <td><?= $dataArray[$key] -> lastName ?></td>
+                    <td><?= $dataArray[$key] -> address ?></td>
+                    <td><?= $dataArray[$key] -> phoneNumber ?></td>
                 </tr>
             <? } ?>
         </table>
